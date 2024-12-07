@@ -69,6 +69,25 @@ public class List {
         list.remove(index);
         return list;
     }
+ //10(question 8)
+public static boolean AllElementsInList(List<Integer> L1, List<Integer> L2) {
+    if (L1.isEmpty()) {
+        return true;
+    }
+    boolean found = false;
+    for (int i = 0; i < L2.size(); i++) {
+        if (L1.get(0).equals(L2.get(i))) {
+            found = true;
+        }
+    }
+    if (!found) {
+        return false;
+    }
+
+    return AllElementsInList(L1.subList(1, L1.size()), L2);
+}
+
+
 
 
 package list1;
@@ -76,5 +95,10 @@ package list1;
 public class main {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5};
+        List<Integer> L1 = List.of(1, 2, 3); 
+        List<Integer> L2 = List.of(1, 2, 3, 4, 5); 
+
+
         }
 }
+
