@@ -85,6 +85,47 @@ public static boolean AllElementsInList(List<Integer> L1, List<Integer> L2) {
     }
 
     return AllElementsInList(L1.subList(1, L1.size()), L2);
+//9
+public static void printCommonValues(List<Integer> L1, List<Integer> L2) {
+    for (Integer value : L1) {
+        for (Integer compareValue : L2) {
+            if (value.equals(compareValue)) {
+                System.out.println(value);
+            }
+        }
+    }
+}
+//10
+public static List<Integer> getCommonValues(List<Integer> L1, List<Integer> L2) {
+    List<Integer> commonValues = new ArrayList<>();
+    for (Integer value : L1) {
+        for (Integer compareValue : L2) {
+            if (value.equals(compareValue)) {
+                commonValues.add(value);
+                break;  
+            }
+        }
+    }
+    return commonValues;
+}
+public static List<Integer> removeCommonElements(List<Integer> L1, List<Integer> L2) {
+    List<Integer> updatedList = new ArrayList<>(L1); 
+    List<Integer> result = new ArrayList<>();
+    
+    for (Integer value : updatedList) {
+        boolean found = false;
+        for (Integer compareValue : L2) {
+            if (value.equals(compareValue)) {
+                found = true;
+            }
+        }
+        if (!found) {
+            result.add(value);  
+        }
+    }
+    
+    return result; 
+}
 }
 
 
